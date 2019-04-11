@@ -93,7 +93,7 @@ extension ViewController {
                                 request
                                     .validate()
                                     .responseData { response in
-                                        guard response.result.isSuccess, let data = response.data else {
+                                        guard response.result.isSuccess, let data = response.result.value else {
                                             print("Error while uploading file: \(String(describing: response.result.error))")
                                             completion(nil)
                                             return
@@ -124,7 +124,7 @@ extension ViewController {
             .request(ImaggaRouter.tags(contentID))
             .validate()
             .responseData { response in
-                guard response.result.isSuccess, let data = response.data else {
+                guard response.result.isSuccess, let data = response.result.value else {
                     print("Error while fetching tags: \(String(describing: response.result.error))")
                     completion(nil)
                     return

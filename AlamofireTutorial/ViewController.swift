@@ -53,15 +53,15 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         activityIndicatorView.startAnimating()
         
         // 2. 이미지 업로드
-        upload(image: image) { [weak self] tags in
-            self?.imageView.alpha = 1.0
-            self?.takePictureButton.isHidden = false
-            self?.activityIndicatorView.isHidden = true
-            self?.activityIndicatorView.stopAnimating()
-            
+        upload(image: image) { [weak self] tags in // 메모리 누수 막으려면 weak self 설정할 것
+            guard let self = self else { return }
+            self.imageView.alpha = 1.0
+            self.takePictureButton.isHidden = false
+            self.activityIndicatorView.isHidden = true
+            self.activityIndicatorView.stopAnimating()
             // 9. 태그값 업데이트하고 테이블뷰 리로드
-            self?.tags = tags ?? []
-            self?.tableView.reloadData()
+            self.tags = tags ?? []
+            self.tableView.reloadData()
         }
         
         dismiss(animated: true)
@@ -80,6 +80,7 @@ extension ViewController {
         }
         
         // 4. 업로드 요청
+        // 클로저를 통해 multipartFormData에 데이터를 추가
         Alamofire.upload(multipartFormData: { multipartFormData in
                             multipartFormData.append(imageData,
                                                      withName: "imagefile",

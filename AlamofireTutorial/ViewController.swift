@@ -93,19 +93,13 @@ extension ViewController {
                                 request
                                     .validate()
                                     .responseData { response in
-                                        guard response.result.isSuccess, let data = response.result.value else {
-                                            print("Error while uploading file: \(String(describing: response.result.error))")
-                                            completion(nil)
-                                            return
-                                        }
-                                        
-                                        do {
-                                            // 5. json을 Codable 객체로 디코드
-                                            let json = try JSONDecoder().decode(UploadRes.self, from: data)
-                                            // 6. 업로드 된 이미지의 id값으로 태그 다운로드 요청
-                                            self.downloadTags(contentID: json.uploaded[0].id, completion: { completion($0) })
-                                        } catch let err {
-                                            print(err)
+                                        let result: Result<UploadResponse> = JSONDecoder().decodeAFResponse(from: response)
+                                        switch result {
+                                        case .success(let uploadResponse):
+                                            let id = uploadResponse.uploaded[0].id
+                                            self.downloadTags(contentID: id, completion: { completion($0) })
+                                        case .failure(let error):
+                                            print(error)
                                             completion(nil)
                                         }
                                     }
@@ -124,19 +118,13 @@ extension ViewController {
             .request(ImaggaRouter.tags(contentID))
             .validate()
             .responseData { response in
-                guard response.result.isSuccess, let data = response.result.value else {
-                    print("Error while fetching tags: \(String(describing: response.result.error))")
-                    completion(nil)
-                    return
-                }
-                
-                do {
-                    let json = try JSONDecoder().decode(TagResponse.self, from: data)
-                    // 8. 태그 값 매핑해서 핸들러에 넘김
-                    let tags = json.results[0].tags.compactMap({return $0.tag})
+                let result: Result<TagResponse> = JSONDecoder().decodeAFResponse(from: response)
+                switch result {
+                case .success(let tagResponse):
+                    let tags = tagResponse.results[0].tags.compactMap({return $0.tag})
                     completion(tags)
-                } catch let err {
-                    print(err)
+                case .failure(let error):
+                    print(error)
                     completion(nil)
                 }
             }

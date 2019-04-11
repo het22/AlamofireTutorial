@@ -17,6 +17,7 @@
 		CB0F5F5A225EE70900B2480E /* AlamofireTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F5F59225EE70900B2480E /* AlamofireTutorialTests.swift */; };
 		CBB39BBA225F058B00F625DD /* CodableResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB39BB9225F058B00F625DD /* CodableResponse.swift */; };
 		CBB39BBC225F0EDA00F625DD /* ImaggaRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB39BBB225F0EDA00F625DD /* ImaggaRouter.swift */; };
+		CBB9EABC225F823B0040DFC0 /* JSONDecoder + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB9EABB225F823B0040DFC0 /* JSONDecoder + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		CB0F5F5B225EE70900B2480E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBB39BB9225F058B00F625DD /* CodableResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableResponse.swift; sourceTree = "<group>"; };
 		CBB39BBB225F0EDA00F625DD /* ImaggaRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImaggaRouter.swift; sourceTree = "<group>"; };
+		CBB9EABB225F823B0040DFC0 /* JSONDecoder + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder + Extension.swift"; sourceTree = "<group>"; };
 		D2E8AB1FE345B62D85679A19 /* Pods-AlamofireTutorialTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireTutorialTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireTutorialTests/Pods-AlamofireTutorialTests.release.xcconfig"; sourceTree = "<group>"; };
 		E41B162BD99CBFC36B77365C /* Pods-AlamofireTutorialTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireTutorialTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireTutorialTests/Pods-AlamofireTutorialTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8E6C298DF9B3CF96C913ACC /* Pods-AlamofireTutorial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireTutorial.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireTutorial/Pods-AlamofireTutorial.release.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				CB0F5F46225EE70800B2480E /* ViewController.swift */,
 				CBB39BBB225F0EDA00F625DD /* ImaggaRouter.swift */,
 				CBB39BB9225F058B00F625DD /* CodableResponse.swift */,
+				CBB9EABB225F823B0040DFC0 /* JSONDecoder + Extension.swift */,
 				CB0F5F48225EE70800B2480E /* Main.storyboard */,
 				CB0F5F4D225EE70900B2480E /* LaunchScreen.storyboard */,
 				CB0F5F4B225EE70900B2480E /* Assets.xcassets */,
@@ -295,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBB9EABC225F823B0040DFC0 /* JSONDecoder + Extension.swift in Sources */,
 				CBB39BBC225F0EDA00F625DD /* ImaggaRouter.swift in Sources */,
 				CB0F5F47225EE70800B2480E /* ViewController.swift in Sources */,
 				CB0F5F45225EE70800B2480E /* AppDelegate.swift in Sources */,

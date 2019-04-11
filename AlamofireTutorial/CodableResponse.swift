@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UploadRes: Codable {
+struct UploadResponse: Codable {
     let status: String
     let uploaded: [Uploaded]
 }

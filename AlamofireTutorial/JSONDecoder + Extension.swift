@@ -18,7 +18,7 @@ extension JSONDecoder {
         }
         // 빈 데이터 처리
         guard let data = response.data else {
-            let error = NSError(domain: "", code: 401, userInfo: [:])
+            let error = NSError(domain: "No Contents", code: 204, userInfo: [:])
             return .failure(error)
         }
         // json 디코드 결과 처리

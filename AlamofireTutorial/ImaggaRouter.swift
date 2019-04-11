@@ -16,9 +16,9 @@ public enum ImaggaRouter: URLRequestConvertible {
     }
     
     case content
-    case tags(String)
+    case tags(String) // 연관값, Associated Values, 추가 정보를 붙일 수 있게함
     
-    var method: HTTPMethod {
+    var method: HTTPMethod { // stored property는 선언 불가, computed property 선언 가능
         switch self {
         case .content:
             return .post
@@ -38,7 +38,7 @@ public enum ImaggaRouter: URLRequestConvertible {
     
     var parameters: [String: Any] {
         switch self {
-        case .tags(let contentID):
+        case .tags(let contentID): // 패턴 매칭, 연관값 String을 contentID에 바인딩
             return ["content": contentID]
         default:
             return [:]

@@ -101,12 +101,17 @@ extension ViewController {
                                             return
                                         }
                                         
-                                        // 5. 결과값(Any) json 파싱
-                                        let data = try! JSONSerialization.data(withJSONObject: value)
-                                        // 6. json을 Codable 객체로 디코드
-                                        let uploadRes = try! JSONDecoder().decode(UploadRes.self, from: data)
-                                        // 7. 업로드 된 이미지의 id값으로 태그 다운로드
-                                        self.downloadTags(contentID: uploadRes.uploaded[0].id, completion: { completion($0) })
+                                        do {
+                                            // 5. 결과값(Any) json 파싱
+                                            let data = try JSONSerialization.data(withJSONObject: value)
+                                            // 6. json을 Codable 객체로 디코드
+                                            let uploadRes = try JSONDecoder().decode(UploadRes.self, from: data)
+                                            // 7. 업로드 된 이미지의 id값으로 태그 다운로드 요청
+                                            self.downloadTags(contentID: uploadRes.uploaded[0].id, completion: { completion($0) })
+                                        } catch let err {
+                                            print(err)
+                                            completion(nil)
+                                        }
                                     })
                             case .failure(let encodingError):
                                 print(encodingError)
@@ -128,11 +133,16 @@ extension ViewController {
                     return
                 }
                 
-                let data = try! JSONSerialization.data(withJSONObject: value)
-                let tagResponse = try! JSONDecoder().decode(TagResponse.self, from: data)
-                // 9. 태그 값만 매핑해서 핸들러에 넘김
-                let tags = tagResponse.results[0].tags.compactMap({return $0.tag})
-                completion(tags)
+                do {
+                    let data = try JSONSerialization.data(withJSONObject: value)
+                    let tagResponse = try JSONDecoder().decode(TagResponse.self, from: data)
+                    // 9. 태그 값 매핑해서 핸들러에 넘김
+                    let tags = tagResponse.results[0].tags.compactMap({return $0.tag})
+                    completion(tags)
+                } catch let err {
+                    print(err)
+                    completion(nil)
+                }
             })
     }
 }

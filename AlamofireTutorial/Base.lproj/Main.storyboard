@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AlamofireTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHR-aH-C5d">
+                                <rect key="frame" x="0.0" y="44" width="414" height="269"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gW7-V1-m1E">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="269"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a61-jc-Shi">
+                                        <rect key="frame" x="319" y="10" width="85" height="30"/>
+                                        <state key="normal" title="Take Picture"/>
+                                        <connections>
+                                            <action selector="takePicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I7D-oD-cl4"/>
+                                        </connections>
+                                    </button>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5tk-5y-Ns2">
+                                        <rect key="frame" x="197" y="124.5" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gW7-V1-m1E" firstAttribute="top" secondItem="mHR-aH-C5d" secondAttribute="top" id="HcF-jE-OYQ"/>
+                                    <constraint firstItem="a61-jc-Shi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mHR-aH-C5d" secondAttribute="leading" constant="20" symbolic="YES" id="MzS-xe-Eye"/>
+                                    <constraint firstAttribute="trailing" secondItem="gW7-V1-m1E" secondAttribute="trailing" id="TJD-ZG-0lz"/>
+                                    <constraint firstItem="a61-jc-Shi" firstAttribute="top" secondItem="mHR-aH-C5d" secondAttribute="top" constant="10" id="ehT-vz-lvC"/>
+                                    <constraint firstAttribute="trailing" secondItem="a61-jc-Shi" secondAttribute="trailing" constant="10" id="hPa-qV-22k"/>
+                                    <constraint firstAttribute="bottom" secondItem="gW7-V1-m1E" secondAttribute="bottom" id="mpV-bi-wHv"/>
+                                    <constraint firstItem="5tk-5y-Ns2" firstAttribute="centerY" secondItem="mHR-aH-C5d" secondAttribute="centerY" id="nxc-lj-Smj"/>
+                                    <constraint firstItem="gW7-V1-m1E" firstAttribute="leading" secondItem="mHR-aH-C5d" secondAttribute="leading" id="vkD-AR-FXz"/>
+                                    <constraint firstItem="5tk-5y-Ns2" firstAttribute="centerX" secondItem="mHR-aH-C5d" secondAttribute="centerX" id="zXC-Jd-zVR"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9ry-Ai-dlg">
+                                <rect key="frame" x="0.0" y="313" width="414" height="583"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" textLabel="7ad-YA-qrY" style="IBUITableViewCellStyleDefault" id="eXT-rk-udv">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eXT-rk-udv" id="OlN-ML-9tv">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7ad-YA-qrY">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mHR-aH-C5d" secondAttribute="trailing" id="MtY-sl-qDI"/>
+                            <constraint firstItem="mHR-aH-C5d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aHI-XR-Hb8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9ry-Ai-dlg" secondAttribute="trailing" id="aZu-oF-5A0"/>
+                            <constraint firstAttribute="bottom" secondItem="9ry-Ai-dlg" secondAttribute="bottom" id="abS-w2-7o6"/>
+                            <constraint firstItem="9ry-Ai-dlg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ae8-Yq-LJ0"/>
+                            <constraint firstItem="mHR-aH-C5d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fWz-vl-POf"/>
+                            <constraint firstItem="9ry-Ai-dlg" firstAttribute="top" secondItem="mHR-aH-C5d" secondAttribute="bottom" id="n5w-hG-yE9"/>
+                            <constraint firstItem="mHR-aH-C5d" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="x1e-jb-8re"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dPu-Dp-XQr"/>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="5tk-5y-Ns2" id="NNh-cY-1Ie"/>
+                        <outlet property="imageView" destination="gW7-V1-m1E" id="9OP-CZ-bgv"/>
+                        <outlet property="tableView" destination="9ry-Ai-dlg" id="UoC-1N-fhm"/>
+                        <outlet property="takePictureButton" destination="a61-jc-Shi" id="AYW-Ae-mLq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+        </scene>
+    </scenes>
+</document>
